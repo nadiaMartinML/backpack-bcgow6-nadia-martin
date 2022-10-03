@@ -1,16 +1,16 @@
 package main
 
-import "fmt"
+//import "fmt"
 
-func main() {
-	x, y := 10, 20
+// func main() {
+// 	x, y := 10, 20
 
-	fmt.Println(x % y)
+// 	fmt.Println(x % y)
 
-	x++
-	fmt.Println(x)
+// 	x++
+// 	fmt.Println(x)
 
-	x = x * y
-	fmt.Println(x > y)
+// 	x = x * y
+// 	fmt.Println(x > y)
 
-}
+// }

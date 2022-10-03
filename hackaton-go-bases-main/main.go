@@ -1,6 +1,6 @@
 package main
 
-import "hackaton/internal/service"
+import "github.com/nadiaMartinML/backpack-bcgow6-nadia-martin/hackaton-go-bases-main/internal/service"
 
 func main() {
 	var tickets []service.Ticket
