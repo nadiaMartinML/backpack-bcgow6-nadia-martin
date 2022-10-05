@@ -17,5 +17,8 @@ func main() {
 	rg := router.Group("/users")
 	rg.POST("/", u.SaveUser)
 	rg.GET("/", u.GetAllUsers)
+	rg.PUT("/:id", u.UpdateUser)
+	rg.DELETE("/:id", u.DeleteUser)
+	rg.PATCH("/:id", u.UpdatePatch)
 	router.Run()
 }
