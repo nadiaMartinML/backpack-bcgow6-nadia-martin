@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"os"
 	"strconv"
@@ -28,11 +29,9 @@ func getAllUsers(c *gin.Context) {
 
 // ejercicio 1 clase TT
 func userFilter(c *gin.Context) {
+	allUsers := Users
 	var filtered []User
-	// if err := c.ShouldBindJSON(&users); err != nil {
-	// 	c.JSON(400, gin.H{"error": err.Error()})
-	// 	return
-	// }
+
 	name := c.Query("Name")
 	lastName := c.Query("LastName")
 	email := c.Query("Email")
@@ -45,11 +44,13 @@ func userFilter(c *gin.Context) {
 	heightKey, _ := strconv.ParseFloat(email, 64)
 	activeKey, _ := strconv.ParseBool(active)
 
-	for _, user := range Users {
+	for _, user := range allUsers {
 		if (name != "" && name == user.Name) || (lastName != "" && lastName == user.LastName) || (email != "" && email == user.Email) || (age != "" && ageKey == user.Age) || (height != "" && heightKey == user.Height) || (active != "" && activeKey == user.Active) || (dateCreate != "" && dateCreate == user.DateCreate) {
 			filtered = append(filtered, user)
 			return
 		}
+		fmt.Println(allUsers)
+		fmt.Println(filtered)
 	}
 	c.JSON(200, filtered)
 }
@@ -83,9 +84,10 @@ func main() {
 
 	router := gin.Default()
 
-	router.GET("/users/GetAll", getAllUsers)
-	router.GET("/users/:id", getOneUser)
-	router.GET("/users/filter", userFilter)
+	rg := router.Group("users")
+	rg.GET("/GetAll", getAllUsers)
+	rg.GET("/:id", getOneUser)
+	rg.GET("/filter", userFilter)
 
 	router.Run()
 }
