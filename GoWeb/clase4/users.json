@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 1,
+    "Name": "Nani",
+    "LastName": "Martin",
+    "Email": "nmm@mail.com",
+    "Age": 32,
+    "Height": 1.62,
+    "Active": true,
+    "DateCreate": "2022-09-19"
+  },
+  {
+    "Id": 2,
+    "Name": "Maria",
+    "LastName": "Vazques",
+    "Email": "mv@mail.com",
+    "Age": 20,
+    "Height": 1.89,
+    "Active": false,
+    "DateCreate": "2022-09-19"
+  },
+  {
+    "Id": 3,
+    "Name": "Nani",
+    "LastName": "Martinez",
+    "Email": "nm1@mail.com",
+    "Age": 38,
+    "Height": 1.62,
+    "Active": false,
+    "DateCreate": "2022-10-04"
+  },
+  {
+    "Id": 4,
+    "Name": "Lucia",
+    "LastName": "Martinez",
+    "Email": "lm1@mail.com",
+    "Age": 38,
+    "Height": 1.62,
+    "Active": true,
+    "DateCreate": "2022-10-04"
+  },
+  {
+    "Id": 5,
+    "Name": "Lucia",
+    "LastName": "Lopez",
+    "Email": "lm1@mail.com",
+    "Age": 45,
+    "Height": 1.62,
+    "Active": true,
+    "DateCreate": "2022-10-04"
+  },
+  {
+    "Id": 7,
+    "Name": "Macarena",
+    "LastName": "Llarena",
+    "Email": "maca@mail.com",
+    "Age": 29,
+    "Height": 1.82,
+    "Active": true,
+    "DateCreate": "2022-10-06"
+  }
+]
