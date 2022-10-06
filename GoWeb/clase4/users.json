@@ -48,15 +48,5 @@
     "Height": 1.62,
     "Active": true,
     "DateCreate": "2022-10-04"
-  },
-  {
-    "Id": 7,
-    "Name": "Macarena",
-    "LastName": "Llarena",
-    "Email": "maca@mail.com",
-    "Age": 29,
-    "Height": 1.82,
-    "Active": true,
-    "DateCreate": "2022-10-06"
   }
 ]

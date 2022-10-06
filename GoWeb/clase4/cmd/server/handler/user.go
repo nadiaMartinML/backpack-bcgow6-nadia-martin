@@ -38,6 +38,16 @@ func (r *request) validate() error {
 	return validate.Struct(r)
 }
 
+// ListUsers
+// @Summary List users
+// @Tags Users
+// @Description get users
+// @Produce json
+// @Param token header string true "token"
+// @Success 200 {object} web.Response
+// @Failure 401 {object} web.Response
+// @Failure 400 {object} web.Response
+// @Router /users [get]
 func (u *User) GetAllUsers(c *gin.Context) {
 	token := c.GetHeader("token")
 	if token != os.Getenv("TOKEN") {
@@ -59,6 +69,18 @@ func (u *User) GetAllUsers(c *gin.Context) {
 	}
 }
 
+// Create Users
+// @Summary save users
+// @Tags Users
+// @Description save users
+// @Accept  json
+// @Produce  json
+// @Param token header string true "token"
+// @Param user body request true "User to store"
+// @Success 200 {object} web.Response
+// @Failure 401 {object} web.Response
+// @Failure 404 {object} web.Response
+// @Router /users [post]
 func (u *User) SaveUser(c *gin.Context) {
 
 	token := c.GetHeader("token")
@@ -89,6 +111,18 @@ func (u *User) SaveUser(c *gin.Context) {
 	c.JSON(http.StatusOK, web.NewResponse(200, userSave, ""))
 }
 
+// Update User
+// @Summary update user
+// @Tags Users
+// @Description update user
+// @Accept json
+// @Produce json
+// @Param id path int true "User id"
+// @Param token header string true "token"
+// @Success 200 {object} web.Response
+// @Failure 401 {object} web.Response
+// @Failure 400 {object} web.Response
+// @Router /users/{id} [put]
 func (u *User) UpdateUser(c *gin.Context) {
 	token := c.GetHeader("token")
 	if token != os.Getenv("TOKEN") {
@@ -123,6 +157,17 @@ func (u *User) UpdateUser(c *gin.Context) {
 	c.JSON(http.StatusOK, web.NewResponse(200, userUpdate, ""))
 }
 
+// Delete User
+// @Summary delete user
+// @Tags Users
+// @Description delete user
+// @Param id path int true "User id"
+// @Param token header string true "token"
+// @Success 200 {object} web.Response
+// @Failure 401 {object} web.Response
+// @Failure 400 {object} web.Response
+// @Failure 404 {object} web.Response
+// @Router /users/{id} [delete]
 func (u *User) DeleteUser(c *gin.Context) {
 	token := c.GetHeader("token")
 	if token != os.Getenv("TOKEN") {
@@ -145,6 +190,19 @@ func (u *User) DeleteUser(c *gin.Context) {
 	c.JSON(http.StatusOK, web.NewResponse(200, fmt.Sprintf("El usuario %d ha sido eliminado correctamente", id), ""))
 }
 
+// UpdatePatch User
+// @Summary update partial user
+// @Tags Users
+// @Description update partial user
+// @Accept json
+// @Produce json
+// @Param id path int true "User id"
+// @Param token header string true "token"
+// @Success 200 {object} web.Response
+// @Failure 401 {object} web.Response
+// @Failure 400 {object} web.Response
+// @Failure 404 {object} web.Response
+// @Router /users/{id} [patch]
 func (u *User) UpdatePatch(c *gin.Context) {
 	token := c.GetHeader("token")
 	if token != os.Getenv("TOKEN") {
