@@ -1,0 +1,30 @@
+Ejercicio 1 
+¿Cuáles son las diferencias entre White Box y Black Box?
+    La principal diferencia entre los test de caja blanca y los de caja negra es que en el de caja negra podemos no tener conocimiento del código, 
+    ya que no vamos a ver el comportamiento del codigo, prueba la funcionalidad utilizando los datos de entrada y de salida del sistema. 
+    Un ejemplo de estos test son los funcionales.
+
+    En cambio para trabajar con los de caja blanca vamos a visualizar todo el procedemiento del código, necesitamos conocer su funcionamiento 
+    para poder realizar los test, por ejemplo un test unitario.
+
+
+Ejercicio 2
+¿Qué es un test funcional?
+    Un test funcional comprueba la funcionalidad del software. Se prueba si el resultado real funciona como se espera.
+    Estas pruebas se basan en la entrada y salida del programa.
+
+
+Ejercicio 3
+¿Qué es un Test de Integración?
+    Son test para comprobar la conexión entre dos o más capas del software. Valida la comunicación entre bloques de código que fueron testeados unitariamente.
+    Estas pruebas permiten demostrar el correcto funcionamiento entre los diferentes módulos o servicios de la aplicación.
+
+
+Ejercicio 4
+Indicar las dimensiones de calidad prioritarias en MELI.
+    -Funcionalidad > Si se realizan las funciones esperadas.
+    -Rendimiento > La velocidad de carga en una función concreta.
+    -Fiabilidad > Si la aplicación funciona correctamente sin fallas.
+    -Seguridad > Si es un software seguro, difícil de hackear, con los datos protegidos, 
+        con las versiones más nuevas de las librerías usadas y siempre testeado.
+    -Mantenibilidad > Si el programa puede ser mantenido facílmente, se puede modificar de manera sencilla. Que sea de buena calidad.
