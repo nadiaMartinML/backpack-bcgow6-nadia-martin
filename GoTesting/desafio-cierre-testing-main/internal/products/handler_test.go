@@ -13,9 +13,33 @@ import (
 )
 
 func createServer() *gin.Engine {
-	repository := NewRepository()
-	service := NewService(repository)
-	p := NewHandler(service)
+
+	product := []Product{
+		{
+			ID:          "mock",
+			SellerID:    "FEX112AC",
+			Description: "generic product",
+			Price:       123.55,
+		},
+	}
+	myMock := MockService{
+		DataMock: product,
+		Error:    "",
+	}
+
+	p := NewHandler(&myMock)
+	r := gin.Default()
+
+	r.GET("/api/v1/products", p.GetProducts)
+	return r
+}
+
+func createServerFail() *gin.Engine {
+	myMock := MockService{
+		Error: "Error!",
+	}
+
+	p := NewHandler(&myMock)
 	r := gin.Default()
 
 	r.GET("/api/v1/products", p.GetProducts)
@@ -65,21 +89,14 @@ func TestGetProductsSellerInvalid(t *testing.T) {
 
 // func TestGetProductsError500(t *testing.T) {
 // 	// arrange
-// 	r := createServer()
+// 	r := createServerFail()
 // 	sellerId := ""
-// 	url := fmt.Sprintf("/api//products?seller_id=%v", sellerId)
+// 	url := fmt.Sprintf("/api/products?seller_id=%v", sellerId)
 // 	req, rr := createRequestTest(http.MethodGet, url, "")
-// 	errExpect := map[string]string{
-// 		"error": "error",
-// 	}
-// 	var response map[string]string
 
 // 	// act
 // 	r.ServeHTTP(rr, req)
 
 // 	// assert
-// 	err := json.Unmarshal(rr.Body.Bytes(), &response)
-// 	assert.Nil(t, err)
 // 	assert.Equal(t, 500, rr.Code)
-// 	assert.Equal(t, errExpect, response)
 // }
